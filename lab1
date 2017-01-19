@@ -1,0 +1,24 @@
+public class TriangleFromSimpleGeometricObject{
+  extends SimpleGeometricObject;
+  private double  sidea = 1;
+  private double  sideb = 1;
+  private double  sidec = 1;
+  //private double  anglea;
+  //private double  angleb;
+  //private double  anglec;
+
+  public TriangleFromSimpleGeometricObject(){
+  }
+
+  public  TriangleFromSimpleGeometricObject(double const_sidea, double const_sideb, double const_sidec){
+    sidea = const_sidea;
+    sideb = const_sideb;
+    sidec = const_sidec;}
+
+  public  double  getArea(){
+    double s = (sidea+sideb+sidec)/2;
+    double area = Math.sqrt(s*(s-sidea)*(s-sideb)*(s-sidec))
+    return  area;}
+
+  public  string getPerimeter(){
+    return  sidea + sideb + sidec;}

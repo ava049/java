@@ -1,0 +1,171 @@
+package chapter11;
+
+public class SimpleGeometricObject {
+  private String color = "white";
+  private boolean filled;
+  private java.util.Date dateCreated;
+  
+  /** Construct a default geometric object */
+  public SimpleGeometricObject() {
+    dateCreated = new java.util.Date();
+  }
+
+  /** Construct a geometric object with the specified color 
+    *  and filled value */
+  public SimpleGeometricObject(String color, boolean filled) {
+    dateCreated = new java.util.Date();
+    this.color = color;
+    this.filled = filled;
+  }
+
+  /** Return color */
+  public String getColor() {
+    return color;
+  }
+
+  /** Set a new color */
+  public void setColor(String color) {
+    this.color = color;
+  }
+
+  /** Return filled. Since filled is boolean, 
+     its get method is named isFilled */
+  public boolean isFilled() {
+    return filled;
+  }
+
+  /** Set a new filled */
+  public void setFilled(boolean filled) {
+    this.filled = filled;
+  }
+  
+  /** Get dateCreated */
+  public java.util.Date getDateCreated() {
+    return dateCreated;
+  }
+  
+  /** Return a string representation of this object */
+  public String toString() {
+    return "created on " + dateCreated + "\ncolor: " + color + 
+      " and filled: " + filled;
+  }
+}
+
+
+
+package chapter11;
+
+public class RectangleFromSimpleGeometricObject 
+    extends SimpleGeometricObject {
+  private double width;
+  private double height;
+
+  public RectangleFromSimpleGeometricObject() {
+  }
+
+  public RectangleFromSimpleGeometricObject(
+      double width, double height) {
+    this.width = width;
+    this.height = height;
+  }
+
+  public RectangleFromSimpleGeometricObject(
+      double width, double height, String color, boolean filled) {
+    this.width = width;
+    this.height = height;
+    setColor(color);
+    setFilled(filled);
+  }
+
+  /** Return width */
+  public double getWidth() {
+    return width;
+  }
+
+  /** Set a new width */
+  public void setWidth(double width) {
+    this.width = width;
+  }
+
+  /** Return height */
+  public double getHeight() {
+    return height;
+  }
+
+  /** Set a new height */
+  public void setHeight(double height) {
+    this.height = height;
+  }
+
+  /** Return area */
+  public double getArea() {
+    return width * height;
+  }
+
+  /** Return perimeter */
+  public double getPerimeter() {
+    return 2 * (width + height);
+  }
+}
+
+
+// Forslag til l�sning exercise 11.1
+// Opptak uten lyd, vil skrive utfyllende kommentarer underveis
+public class Triangle extends GeometricObject{
+	private double side1;
+	private double side2;
+	private double side3;
+	
+	public Triangle (){ // Default constructor
+		super(); // kaller default constr i foreldreklassen
+		side1 = 1.0;
+		side2 = 1.0;
+		side2 = 1.0;
+	}
+	public Triangle (String color, boolean filled, double s1, double s2, double s3){ 
+		super(color, filled); // kaller constr i foreldreklassen
+		side1 = s1;
+		side2 = s2;
+		side3 = s3;  // til seerne av opptaket: her var en feil
+	}
+	// getter og setter metoder
+	// Se meny valg Source / generate setters and getters
+	// for � f� laget disse "automatisk"
+	public double getSide1() {
+		return side1;
+	}
+	public void setSide1(double side1) {
+		this.side1 = side1;
+	}
+	public double getSide2() {
+		return side2;
+	}
+	public void setSide2(double side2) {
+		this.side2 = side2;
+	}
+	public double getSide3() {
+		return side3;
+	}
+	public void setSide3(double side3) {
+		this.side3 = side3;
+	}
+	public double getArea() {
+		double s;
+		// For de som s� p� opptaket:
+		// Her var det ogs� en feil innledningsvis:
+		// (1/2) gir 0 som resultat, heltallsdivisjon
+		s = 0.5 * (side1 * side2 * side3);
+		return Math.sqrt(s*(s - side1)*(s-side2)*(s-side3));
+	}
+	public double perimeter () {
+		return side1 + side2 + side3;
+	}
+	@Override
+	public String toString () {
+		// Kaller foreldreklassen sin toString for � f� med color og filled verdiene
+		return super.toString() + ", side 1 = " + side1 + ", side 2 = " + side2
+				+ ", side 3 = " + side3;
+	}
+
+	
+}

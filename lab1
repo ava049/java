@@ -10,7 +10,10 @@ public class TriangleFromSimpleGeometricObject{
   public TriangleFromSimpleGeometricObject(){
   }
 
-  public  TriangleFromSimpleGeometricObject(double const_sidea, double const_sideb, double const_sidec){
+  public  TriangleFromSimpleGeometricObject(double const_sidea, double const_sideb, double const_sidec, boolean const_filled, string const_color){
+    super(const_color, const_filled);
+    //setColor(const_color);
+    //setFilled(const_filled);
     sidea = const_sidea;
     sideb = const_sideb;
     sidec = const_sidec;}
@@ -22,3 +25,7 @@ public class TriangleFromSimpleGeometricObject{
 
   public  string getPerimeter(){
     return  sidea + sideb + sidec;}
+
+  public  string  toString(){
+    return  super.toString()+" Dette er siden til trekanten: "+sidea+", "+sideb" og "+sidec+". Dette er arealet: "+getArea();
+  }

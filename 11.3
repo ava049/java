@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+public class oppgaver{
+  public static void main(String[] args){
+    ArrayList<Integer> listeMedTall = new ArrayList<>;
+    Scanner input = new Scanner(system.in);
+    for(int i = 1; i <= 20; i++){
+      system.out.println("Skriv inn ett tall: \n")
+      int var = input.nextInt();   
+      listeMedTall.add(var);
+    }
+    sameElement(listeMedTall);
+  }
+
+  public static void sameElement(ArrayList<Integer> listeMedTall){
+    for(int i = 0; i < 20; i++){
+      for(int j = i+1; j < 20; j++){
+        if(i == j)
+          system.out.println(i + " ");
+      }
+    }
+  }
+}
